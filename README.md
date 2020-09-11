@@ -5,7 +5,7 @@ todo 게시판 만들기
 git clone https://github.com/somefood/todoList.git
 master 브랜치 건들지 말고, 브랜치 생성해서 작업하시오.
 
-git checkout -b 브랜치명
+git checkout -b 브랜치명(design? 일케?)
 
 ## 프론트 쪽 파일
 static/css
