@@ -9,16 +9,22 @@
             <p class="continue">Enter your details below to continue</p>
             <form action="" method="POST" class="form clearfix">
                 {% csrf_token %}
-                {{ form.username|attr:"placeholder:아이디를 입력해주세요." }}
-                {{ form.password|attr:"placeholder:비밀번호를 입력해주세요." }}
+                <div class="form_usename">
+                   <i class="far fa-envelope"></i>
+                   {{ form.username|attr:"placeholder:E-mail Address." }}
+                   <p class="ani1"></p>                   
+                </div>
+                <div class="form_passworld">
+                   <i class="fas fa-lock"></i>
+                   {{ form.password|attr:"placeholder:Password" }}
+                   <p class="ani2"></p>
+                </div>
                 <a href="#" class="FP">Forgot Password > </a>
                 <input class="login" type="submit" value="Login">
             </form>
 
 
             <p class="account">Don't have an acconut?<a href="{% url 'accounts:register' %}" class="register">Sing up here </a></p>
-            <div class="desing_1"></div>
-            <div class="desing_2"></div>
         </div>
 
     </div>
