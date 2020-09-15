@@ -42,4 +42,5 @@ static/js
 
 
 *20-09-15*
-login.html, styles.css 수정
+login.html, styles.css 수정 
+placeholder, icon 수정 및 보안 
