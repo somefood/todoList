@@ -1,10 +1,12 @@
 {% extends "_base.html" %}
 {% block content %}
-<form action="" method="POST">
-    {% csrf_token %}
-    {{ form }}
-    {{ profile_form }}
-    <input type="submit" value="submit">
-</form>
-    {{ error }}
+    {% include "_form_error.html" %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.username }}
+        {{ form.password1 }}
+        {{ form.password2 }}
+        {{ profile_form }}
+        <input type="submit" value="submit">
+    </form>
 {% endblock %}

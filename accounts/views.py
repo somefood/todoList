@@ -2,12 +2,12 @@ from django.shortcuts import render
 from django.views.generic import CreateView, TemplateView
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
-from .forms import ProfileForm
+from .forms import ProfileForm, UserCreateForm
 
 
 class UserCreateView(CreateView):
     template_name = 'registration/register.html'
-    form_class = UserCreationForm
+    form_class = UserCreateForm
     success_url = reverse_lazy('accounts:register_done')
 
     def get_context_data(self, **kwargs):
@@ -21,7 +21,6 @@ class UserCreateView(CreateView):
         if profile_form.is_valid():
             profile_form.save()
         return super().form_valid(form)
-
 
 
 class UserCreateDoneView(TemplateView):

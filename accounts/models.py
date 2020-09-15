@@ -18,6 +18,7 @@ class Profile(models.Model):
         verbose_name = "프로필 목록"
         verbose_name_plural = "프로필 목록"
 
+
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
