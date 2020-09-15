@@ -1,6 +1,9 @@
 {% extends "_base.html" %}
 
 {% block content %}
-    index view
+    {% firstof request.user.profile.nickname request.user.username %}님
     <a href="{% url 'logout' %}">로그아웃</a>
+    {{ not_started }}
+    {{ progressed }}
+    {{ completed }}
 {% endblock %}
