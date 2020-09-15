@@ -38,3 +38,9 @@ todolist/templates/todolist/index.html (todo list 메인 페이지)
 
 static/css
 static/js
+
+
+
+*20-09-15*
+login.html, styles.css 수정 
+placeholder, icon 수정 및 보안 
