@@ -3,7 +3,40 @@
 {% block content %}
     {% firstof request.user.profile.nickname request.user.username %}님
     <a href="{% url 'logout' %}">로그아웃</a>
-    {{ not_started }}
-    {{ progressed }}
-    {{ completed }}
+
+    {# 미시작 영역 #}
+    <div class="ns-area">
+    {% for ns in not_started %}
+        <div>
+            {{ ns.title }}
+            {{ ns.content }}
+            {{ ns.is_progressed }}
+            {{ ns.is_completed }}
+        </div>
+    {% endfor %}
+    </div>
+
+    {# 진행중 영역 #}
+    <div class="pg-area">
+    {% for pg in progressed %}
+        <div>
+            {{ pg.title }}
+            {{ pg.content }}
+            {{ pg.is_progressed }}
+            {{ pg.is_completed }}
+        </div>
+    {% endfor %}
+    </div>
+
+    {# 완료 영역 #}
+    <div class="cp-area">
+    {% for cp in completed %}
+        <div>
+            {{ cp.title }}
+            {{ cp.content }}
+            {{ cp.is_progressed }}
+            {{ cp.is_completed }}
+        </div>
+    {% endfor %}
+    </div>
 {% endblock %}
