@@ -1,0 +1,14 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form.title }}
+    {{ form.content }}
+    {% if form.is_progressed and form.is_completed %}
+        {{ form.is_progressed }}
+        {{ form.is_completed }}
+    {% endif %}
+    <input type="submit" value="작성">
+</form>
+{% endblock %}

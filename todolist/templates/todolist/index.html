@@ -3,40 +3,42 @@
 {% block content %}
     {% firstof request.user.profile.nickname request.user.username %}님
     <a href="{% url 'logout' %}">로그아웃</a>
-
-    {# 미시작 영역 #}
-    <div class="ns-area">
-    {% for ns in not_started %}
-        <div>
-            {{ ns.title }}
-            {{ ns.content }}
-            {{ ns.is_progressed }}
-            {{ ns.is_completed }}
+    <a href="{% url 'todo:create' %}">항목 추가</a>
+    <div class="todo-area">
+        {# 미시작 영역 #}
+        <div class="ns-area">
+            <div class="header">진행 전</div>
+            {% for ns in not_started %}
+                <div class="item-area">
+                    <a href="{{ ns.get_absolute_url }}">{{ ns.title }}</a>
+                    {{ ns.content }}
+                    <a href="{% url 'todo:update' ns.pk %}">수정</a>
+                </div>
+            {% endfor %}
         </div>
-    {% endfor %}
-    </div>
 
-    {# 진행중 영역 #}
-    <div class="pg-area">
-    {% for pg in progressed %}
-        <div>
-            {{ pg.title }}
-            {{ pg.content }}
-            {{ pg.is_progressed }}
-            {{ pg.is_completed }}
+        {# 진행중 영역 #}
+        <div class="pg-area">
+            <div class="header">진행 중</div>
+            {% for pg in progressed %}
+                <div class="item-area">
+                    <a href="{{ pg.get_absolute_url }}">{{ pg.title }}</a>
+                    {{ pg.content }}
+                    <a href="{% url 'todo:update' pg.pk %}">수정</a>
+                </div>
+            {% endfor %}
         </div>
-    {% endfor %}
-    </div>
 
-    {# 완료 영역 #}
-    <div class="cp-area">
-    {% for cp in completed %}
-        <div>
-            {{ cp.title }}
-            {{ cp.content }}
-            {{ cp.is_progressed }}
-            {{ cp.is_completed }}
+        {# 완료 영역 #}
+        <div class="cp-area">
+            <div class="header">완료</div>
+            {% for cp in completed %}
+                <div class="item-area">
+                    <a href="{{ cp.get_absolute_url }}">{{ cp.title }}</a>
+                    {{ cp.content }}
+                    <a href="{% url 'todo:update' cp.pk %}">수정</a>
+                </div>
+            {% endfor %}
         </div>
-    {% endfor %}
     </div>
 {% endblock %}

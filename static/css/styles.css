@@ -81,8 +81,22 @@ input:focus{outline: none}
 
 
 
+/* todolist */
+.todo-area {
+    width: 100%;
+    max-width: 1800px;
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+}
 
+.todo-area .header {
+    font-size: 1.2rem;
+}
 
+.todo-area .item-area {
+    border: 1px solid black;
+}
 
 
 

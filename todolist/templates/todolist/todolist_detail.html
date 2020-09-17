@@ -1,0 +1,9 @@
+{% extends "_base.html" %}
+
+{% block content %}
+    <a href="{% url 'todo:update' object.pk %}">수정</a>
+    <a href="{% url 'todo:delete' object.pk %}">삭제</a>
+    {{ object }}
+    디테일
+    <a href="{% url 'todo:index' %}">메인</a>
+{% endblock %}
