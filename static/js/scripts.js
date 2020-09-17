@@ -1,3 +1,5 @@
-$(document).ready(function () {
-  $(document).bind();
+$(function () {
+  $(" .lbUsername").focus(function () {
+    alert("확인");
+  });
 });

@@ -1,4 +1,4 @@
-{% extends "_base.html" %} {% block content %}
+{% extends "_base.html" %} {% block content %} {% load widget_tweaks %}
 <div class="Register_wrap wrap" onselectstart="return false">
   <div class="center">
     <h3 class="h3">회원가입</h3>
@@ -7,6 +7,7 @@
       {% csrf_token %}
       <p class="RS_IP username">
         {{ form.username }}
+        <!-- |attr:"placeholder:안녕하세요" -->
         <label for="id_username" class="lbUsername"
           >아이디를 입력해주세요</label
         >
