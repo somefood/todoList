@@ -1,140 +1,361 @@
 /*reset*/
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap");
 @charset "uft-8";
-*{margin: 0; padding: 0; box-sizing: border-box;}
-ul{list-style: none;}
-img{border: none; vertical-align: middle;}
-a{text-decoration: none; color:#333;}
-a:link,a:visited{text-decoration: none; color:#333;}
-a:hover,a:focus,a:active{text-decoration:none; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul {
+  list-style: none;
+}
+img {
+  border: none;
+  vertical-align: middle;
+}
+a {
+  text-decoration: none;
+  color: #333;
+}
+a:link,
+a:visited {
+  text-decoration: none;
+  color: #333;
+}
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+}
 /*body static*/
-body{font-size:16px; font-family: 'Noto Sans KR', sans-serif;}
+body {
+  font-size: 16px;
+  font-family: "Noto Sans KR", sans-serif;
+  onselectstart="return false"
+}
 /*label{display: none;}*/
-input{display: block;}
-.skip{font-size:0; width:0; height:0; text-indent:-9999px; overflow:hidden; line-height:0;}
-.clearfix:after{content: ''; display: block; clear: both;}
+input {
+  display: block;
+}
+.skip {
+  font-size: 0;
+  width: 0;
+  height: 0;
+  text-indent: -9999px;
+  overflow: hidden;
+  line-height: 0;
+}
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
 
 /*login*/
-.wrap{width: 100%; height: 100vh; 
-background: linear-gradient(90deg, rgba(49,217,228,1) 0%, rgba(98,141,233,1) 76%, rgba(143,71,238,1) 100%); display: flex; justify-content: center; align-items: center;}
-.wrap .center{position: relative; width: 600px; height: 700px; padding:120px 60px 60px 60px; background-color: rgba(255,255,255); color: #d3d3d3; box-shadow:1px 1px 20px 2px; border-radius: 100px;}
-.center .h3{font-size: 3rem; font-weight: 500; color: #9cf0f8;}
-.center .continue{margin-bottom: 60px;}
+.wrap {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(
+    90deg,
+    rgba(49, 217, 228, 1) 0%,
+    rgba(98, 141, 233, 1) 76%,
+    rgba(143, 71, 238, 1) 100%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wrap .center {
+  position: relative;
+  width: 600px;
+  height: 700px;
+  padding: 120px 60px 60px 60px;
+  background-color: rgba(255, 255, 255);
+  color: #d3d3d3;
+  box-shadow: 1px 1px 20px 2px;
+  border-radius: 100px;
+}
+.center .h3 {
+  font-size: 3rem;
+  font-weight: 500;
+  color: #9cf0f8;
+}
+.center .continue {
+  margin-bottom: 60px;
+}
 
 /*form style*/
-input:focus{outline: none}
-.form_username, .form_password{position: relative;}
-.form_password input[type = password]{margin-top: 10px;}
+input:focus {
+  outline: none;
+}
+.form_username,
+.form_password {
+  position: relative;
+}
+.form_password input[type="password"] {
+  margin-top: 10px;
+}
 .form_username .fa-envelope,
-.form_password .fa-lock{font-size: 2.5rem; position: absolute; top:5px;right:10px}
-.form_username input[type = text],
-.form_password input[type = password]{width: 100%; height: 50px; padding: 10px; border:none; border-bottom: 1px solid #333; font-size: 1.5rem}
-.form .FP{display: block;letter-spacing: 1.2px; margin: 25px 0px 25px 0px; color: #000; font-weight: 500;}
-.form_username, .form_password{position: relative;}
-.form_password input[type = password]{margin-top: 10px;}
+.form_password .fa-lock {
+  font-size: 2.5rem;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+.form_username input[type="text"],
+.form_password input[type="password"] {
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid #333;
+  font-size: 1.5rem;
+}
+.form .FP {
+  display: block;
+  letter-spacing: 1.2px;
+  margin: 25px 0px 25px 0px;
+  color: #000;
+  font-weight: 500;
+}
+.form_username,
+.form_password {
+  position: relative;
+}
+.form_password input[type="password"] {
+  margin-top: 10px;
+}
 .form_username .fa-user,
-.form_password .fa-lock{font-size: 2.5rem; position: absolute; top:5px;right:10px}
-.form_username input[type = text],
-.form_password input[type = password]{width: 100%; height: 50px; padding: 10px; border:none; border-bottom: 1px solid #333; font-size: 1.5rem}
+.form_password .fa-lock {
+  font-size: 2.5rem;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+.form_username input[type="text"],
+.form_password input[type="password"] {
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid #333;
+  font-size: 1.5rem;
+}
 
 /*animation*/
-.ani1, .ani2{position: absolute; bottom:0px; left:0px;  width:100%; height: 2px;}
-.form_username:hover .far{transition: 1.5s; color: rgba(143,71,238,1)}
-.form_password:hover .fas{transition: 1.5s; color: rgba(143,71,238,1)}
+.ani1,
+.ani2 {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 2px;
+}
+.form_username:hover .far {
+  transition: 1.5s;
+  color: rgba(143, 71, 238, 1);
+}
+.form_password:hover .fas {
+  transition: 1.5s;
+  color: rgba(143, 71, 238, 1);
+}
 .form_username:hover .ani1,
-.form_password:hover .ani2{animation: mv1 ease-out 1s;background: linear-gradient(90deg, rgba(49,217,228,1) 0%, rgba(98,141,233,1) 76%, rgba(143,71,238,1) 100%)}
+.form_password:hover .ani2 {
+  animation: mv1 ease-out 1s;
+  background: linear-gradient(
+    90deg,
+    rgba(49, 217, 228, 1) 0%,
+    rgba(98, 141, 233, 1) 76%,
+    rgba(143, 71, 238, 1) 100%
+  );
+}
 .form_username:hover .ani1,
-.form_password:hover .ani2{animation: mv1 ease-out 1s;background: linear-gradient(90deg, rgba(49,217,228,1) 0%, rgba(98,141,233,1) 76%, rgba(143,71,238,1) 100%)}
-@keyframes mv1{
-    0%{
-        width: 0%;
-    }
-    100%{
-       width: 100%
-    }
+.form_password:hover .ani2 {
+  animation: mv1 ease-out 1s;
+  background: linear-gradient(
+    90deg,
+    rgba(49, 217, 228, 1) 0%,
+    rgba(98, 141, 233, 1) 76%,
+    rgba(143, 71, 238, 1) 100%
+  );
+}
+@keyframes mv1 {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
 }
 
 /*add style*/
-.center .login{width: 100%; height: 50px; font-size: 1.5rem; color: #fff; border:none; border-radius: 10px; background: linear-gradient(90deg, rgba(194,169,227,1) 0%, rgba(143,71,238,1) 76%); box-shadow: 1px 1px 8px 0px rgba(194,169,227,1); cursor: pointer;}
-.center p.account{margin-top: 40px;}
-.center a.register{padding-left:15px; color: #9cf0f8;}
-
-
-
-
-
-
+.center .login {
+  width: 100%;
+  height: 50px;
+  font-size: 1.5rem;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(
+    90deg,
+    rgba(194, 169, 227, 1) 0%,
+    rgba(143, 71, 238, 1) 76%
+  );
+  box-shadow: 1px 1px 8px 0px rgba(194, 169, 227, 1);
+  cursor: pointer;
+}
+.center p.account {
+  margin-top: 40px;
+}
+.center a.login_register {
+  padding-left: 15px;
+  color: #9cf0f8;
+}
 
 /*resister*/
-.Register_wrap .center{padding: 100px 60px 60px 60px}
-.RS_IP{position: relative;margin-bottom: 40px;}
-.RS_IP input{width: 100%; height: 40px; padding: 10px; border:none; border-bottom: 1px solid #333; font-size: 1.5rem}
-#id_username, .RS_IP .lbUsername{transition: all 0.2s;}
-.RS_IP .lbUsername{position:absolute; top:4px; left:0px; line-height: 1; color:#000; font-size: 1.5rem; color: #999}
-.RS_IP input:focus + label{top: -35px;left: 0;padding: 8px 8px 8px;border-radius: 10px;background-color: #3498db;color: #fff;font-size: 1rem;}
-.RS_IP input:focus + label::after {content: '';position: absolute;top: 31px;left: 50%;margin-left: -6px;border: 6px solid transparent;border-top-color: #3498db;
+.Register_wrap .center {
+  padding: 60px 60px 60px 60px;
 }
-.nickname label:nth-of-type(1){display: none;}
+.RS_IP {
+  position: relative;
+  margin-bottom: 40px;
+}
+.RS_IP input {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid #333;
+  font-size: 1.5rem;
+}
+#id_username,
+.RS_IP .lbUsername {
+  transition: all 0.2s;
+}
+.RS_IP .lbUsername {
+  position: absolute;
+  top: 4px;
+  left: 0px;
+  line-height: 1;
+  font-size: 1.5rem;
+  color: #fff;
+}
+.RS_IP input:focus + label {
+  top: -35px;
+  left: 0;
+  padding: 8px 8px 8px;
+  border-radius: 10px;
+  background-color: #3498db;
+  color: #fff;
+  font-size: 1rem;
+}
+.RS_IP input:focus + label::after {
+  content: "";
+  position: absolute;
+  top: 31px;
+  left: 50%;
+  margin-left: -6px;
+  border: 6px solid transparent;
+  border-top-color: #3498db;
+}
+.nickname label:nth-of-type(1) {
+  display: none;
+}
+.nickname {
+  margin-bottom: 0;
+  padding-bottom: 20px;
+}
 
 /*register submit*/
-.register{width: 100%; height: 50px; font-size: 1.5rem; color: #fff; border:none; border-radius: 10px; background: linear-gradient(90deg, rgba(194,169,227,1) 0%, rgba(143,71,238,1) 76%); box-shadow: 1px 1px 8px 0px rgba(194,169,227,1); cursor: pointer;}
+.register {
+  width: 100%;
+  height: 50px;
+  margin-top: 40px;
+  font-size: 1.5rem;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(
+    90deg,
+    rgba(194, 169, 227, 1) 0%,
+    rgba(143, 71, 238, 1) 76%
+  );
+  box-shadow: 1px 1px 8px 0px rgba(194, 169, 227, 1);
+  cursor: pointer;
+}
+.Register_wrap .error {
+  color: red;
+}
 
+/* ToDoList_register_done */
+.Register_done_wrap .center {
+  padding: 60px 60px 60px 60px;
+}
+.done_box {
+  margin-top: 100px;
+}
+.done_box .fa-user-tie {
+  position: relative;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 180px;
+  /* transform: translate(0px, 30px); */
+  /* transition: all 1s ease infinite; */
+  animation: login_done_mv1 1.5s ease infinite;
+}
 
+@keyframes login_done_mv1 {
+  0% {
+    top: 0px;
+  }
+  50% {
+    top: -30px;
+  }
+  100% {
+    top: 0px;
+  }
+}
+
+.done_box .user_namebox {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 24px;
+}
+
+.done_box .user_name {
+  font-weight: 600;
+  color: red;
+}
+
+.done_box .done_login {
+  position: relative;
+  display: block;
+  margin: 90px auto 0 auto;
+  text-align: center;
+  width: 240px;
+  height: 60px;
+  line-height: 55px;
+  font-size: 18px;
+  font-weight: 600;
+  border: 3px solid rgb(140, 140, 140, 1);
+  border-radius: 20px;
+  color: rgb(140, 140, 140, 1);
+}
 
 /* todolist */
 .todo-area {
-    width: 100%;
-    max-width: 1800px;
-    display: flex;
-    justify-content: space-around;
-    margin: 0 auto;
+  width: 100%;
+  max-width: 1800px;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
 }
 
 .todo-area .header {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 .todo-area .item-area {
-    border: 1px solid black;
+  border: 1px solid black;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
