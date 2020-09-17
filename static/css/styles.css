@@ -67,7 +67,7 @@ input {
 .wrap .center {
   position: relative;
   width: 600px;
-  height: 700px;
+  min-height: 700px;
   padding: 120px 60px 60px 60px;
   background-color: rgba(255, 255, 255);
   color: #d3d3d3;
@@ -238,6 +238,7 @@ input:focus {
   line-height: 1;
   font-size: 1.5rem;
   color: #333;
+  z-index: -11;
 }
 .RS_IP input:focus + label {
   top: -35px;
@@ -247,6 +248,7 @@ input:focus {
   background-color: #3498db;
   color: #fff;
   font-size: 1rem;
+  z-index: 5;
 }
 .RS_IP input:focus + label::after {
   content: "";

@@ -6,26 +6,26 @@
     <form action="" method="POST">
       {% csrf_token %}
       <p class="RS_IP username">
-        {{ form.username }}
+        {{ form.username |attr:"placeholder:아이디를 입력해주세요."}}
         <!-- |attr:"placeholder:안녕하세요" -->
         <label for="id_username" class="lbUsername"
           >아이디를 입력해주세요</label
         >
       </p>
       <p class="RS_IP password1">
-        {{ form.password1}}
+        {{ form.password1 |attr:"placeholder:비밀번호를 입력해주세요."}}
         <label for="id_password1" class="lbUsername"
           >비밀번호를 입력해주세요</label
         >
       </p>
       <p class="RS_IP password2">
-        {{ form.password2 }}
+        {{ form.password2 |attr:"placeholder:비밀번호를 다시 입력해주세요."}}
         <label for="id_password2" class="lbUsername"
           >비밀번호를 다시 입력해주세요</label
         >
       </p>
       <p class="RS_IP nickname">
-        {{ profile_form }}
+        {{ profile_form.nickname |attr:"placeholder:닉네임을 입력해주세요."}}
         <label for="id_nickname" class="lbUsername"
           >닉네임을 입력해주세요</label
         >
