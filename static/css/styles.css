@@ -168,6 +168,7 @@ input:focus {
     rgba(143, 71, 238, 1) 100%
   );
 }
+
 .form_username:hover .ani1,
 .form_password:hover .ani2 {
   animation: mv1 ease-out 1s;
@@ -259,9 +260,7 @@ input:focus {
   border: 6px solid transparent;
   border-top-color: #3498db;
 }
-.nickname label:nth-of-type(1) {
-  display: none;
-}
+
 .nickname {
   margin-bottom: 0;
   padding-bottom: 20px;
@@ -345,18 +344,137 @@ input:focus {
 }
 
 /* todolist */
+.todo_wrap{
+  align-items:start;
+}
+.area{
+  position: relative;
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto;
+}
+.user_zone{
+  position: absolute;
+  top:10px;
+  right:65px;
+  color: #333;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
 .todo-area {
   width: 100%;
   max-width: 1800px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin: 0 auto;
+  border-radius: 15px;
+  margin-top: 80px;
+  background: #fbfbfb;
+ 
+}
+
+.area_zone{
+  position: relative;
+  width: calc(33.3% - 1%);
+  min-height: 800px;
+  padding:15px;
+  border:1px solid #d9d9d9;
+  border-radius: 15px;
+}
+.area_zone:nth-of-type(2){
+  margin:0 -1% 0 -1%;
 }
 
 .todo-area .header {
   font-size: 1.2rem;
+  width: 100%;
+  margin-bottom: 30px;
+  }
+
+.todo-area h3{
+  display: inline-block;
+  padding:0px 10px 0px 10px;
+}
+
+.todo-area .ago h3{
+  background-color: rgba(156, 240, 248, 0.5);
+}
+.todo-area .ing h3{
+  background-color:rgba(49, 217, 228, 0.6)
+}
+
+.todo-area .success h3{
+  background-color:rgba(122, 172, 239, 0.9)
 }
 
 .todo-area .item-area {
-  border: 1px solid black;
+  /* z-index: 9999; */
+  margin-top:30px;
+  border: 1px solid #d9d9d9;
+  border-radius: 5px ;
+  box-shadow: 0px 1px 1px 1px rgba(217, 217, 217, 0.5);
+  cursor: pointer;
+}
+.mv_zone {
+  min-height: 100px;
+  background-color: blue;
+}
+
+.area_zone .New{
+  position: relative;
+  display: inline-block;;
+  color: #d9d9d9;
+  margin-top: 10px;
+  padding-left: 30px;
+}
+.New .plus_1{
+position:absolute;
+top:5px;
+left:15px;
+width: 2px;
+height: 16px;
+background-color:#d9d9d9;
+}
+
+.New .plus_2{
+  position:absolute;
+  top:12px;
+  left:7px;
+  width: 16px;
+  height: 2px;
+  background-color:#d9d9d9;
+  }
+
+.area_zone .more{
+  position: absolute;
+  top:7px;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+}
+
+.item-area .title{
+  padding-left: 20px;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.more .mores{
+  width : 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #d9d9d9;
+  position: absolute;
+  top:25%;
+  margin-top: 5px;
+}
+.more .more_1{ 
+  left:0%;
+}
+.more .more_2{
+  left:33%;
+}
+.more .more_3{
+  left:66%;
 }

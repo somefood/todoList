@@ -1,44 +1,87 @@
 {% extends "_base.html" %}
 
 {% block content %}
-    {% firstof request.user.profile.nickname request.user.username %}님
-    <a href="{% url 'logout' %}">로그아웃</a>
-    <a href="{% url 'todo:create' %}">항목 추가</a>
+<div class="todo_wrap wrap">
+    <div class="user_zone">
+        {% firstof request.user.profile.nickname request.user.username %}님
+        <a href="{% url 'logout' %}">로그아웃</a>
+        <!-- <a href="{% url 'todo:create' %}">항목 추가</a> -->
+    </div>
     <div class="todo-area">
         {# 미시작 영역 #}
-        <div class="ns-area">
-            <div class="header">진행 전</div>
-            {% for ns in not_started %}
+        <div class="ns-area area_zone">
+            <div class="header ago">
+                <h3>진행 전</h3>
+            </div>
+            <div class="mv_zone">
+                {% for ns in not_started %}
                 <div class="item-area">
-                    <a href="{{ ns.get_absolute_url }}">{{ ns.title }}</a>
+                    <a href="{{ ns.get_absolute_url }}" class="title">{{ ns.title }}</a>
                     {{ ns.content }}
                     <a href="{% url 'todo:update' ns.pk %}">수정</a>
                 </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
+            <a href="{% url 'todo:create' %}" class="New">
+                <span class="plus_1"></span>
+                <span class="plus_2"></span>
+                New</a>
+            <a href="#" class="more">
+                <span class="mores more_1"></span>
+                <span class="mores more_2"></span>
+                <span class="mores more_3"></span>
+            </a>
         </div>
 
         {# 진행중 영역 #}
-        <div class="pg-area">
-            <div class="header">진행 중</div>
-            {% for pg in progressed %}
+        <div class="pg-area area_zone">
+            <div class="header ing">
+                <h3>진행 중</h3>
+            </div>
+            <div class="mv_zone">
+                {% for pg in progressed %}
                 <div class="item-area">
-                    <a href="{{ pg.get_absolute_url }}">{{ pg.title }}</a>
+                    <a href="{{ pg.get_absolute_url }}" class="title">{{ pg.title }}</a>
                     {{ pg.content }}
                     <a href="{% url 'todo:update' pg.pk %}">수정</a>
                 </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
+            <a href="{% url 'todo:create' %}" class="New">
+                <span class="plus_1"></span>
+                <span class="plus_2"></span>
+                New</a>
+            <a href="#" class="more">
+                <span class="mores more_1"></span>
+                <span class="mores more_2"></span>
+                <span class="mores more_3"></span>
+            </a>
         </div>
 
         {# 완료 영역 #}
-        <div class="cp-area">
-            <div class="header">완료</div>
-            {% for cp in completed %}
+        <div class="cp-area area_zone">
+            <div class="header success">
+                <h3>완료</h3>
+            </div>
+            <div class="mv_zone">
+                {% for cp in completed %}
                 <div class="item-area">
-                    <a href="{{ cp.get_absolute_url }}">{{ cp.title }}</a>
+                    <a href="{{ cp.get_absolute_url }}" class="title">{{ cp.title }}</a>
                     {{ cp.content }}
                     <a href="{% url 'todo:update' cp.pk %}">수정</a>
                 </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
+            <a href="{% url 'todo:create' %}" class="New">
+                <span class="plus_1"></span>
+                <span class="plus_2"></span>
+                New</a>
+            <a href="#" class="more">
+                <span class="mores more_1"></span>
+                <span class="mores more_2"></span>
+                <span class="mores more_3"></span>
+            </a>
         </div>
     </div>
+</div>
 {% endblock %}
