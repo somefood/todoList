@@ -1,6 +1,7 @@
 # Created by https://www.gitignore.io/api/django,python
 # Edit at https://www.gitignore.io/?templates=django,python
 .idea/
+db.sqlite3
 mysql.sql
 tasks.py
 .DS_Store
@@ -194,6 +195,3 @@ dmypy.json
 # Pyre type checker
 
 # End of https://www.gitignore.io/api/django,python
-preview.jpg
-preview.png
-db.sqlite3
