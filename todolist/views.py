@@ -30,6 +30,11 @@ class TodoCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         self.object = form.save(commit=False)
         self.object.username = self.request.user
+        if self.kwargs['status'] == "progressed":
+            self.object.is_progressed = True
+        elif self.kwargs['status'] == "completed":
+            self.object.is_progressed = True
+            self.object.is_completed = True
         self.object.save()
         return super().form_valid(form)
 

@@ -47,7 +47,7 @@
                 </div>
                 {% endfor %}
             </div>
-            <a href="{% url 'todo:create' %}" class="New">
+            <a href="{% url 'todo:create' 'progressed' %}" class="New">
                 <span class="plus_1"></span>
                 <span class="plus_2"></span>
                 New</a>
@@ -72,7 +72,7 @@
                 </div>
                 {% endfor %}
             </div>
-            <a href="{% url 'todo:create' %}" class="New">
+            <a href="{% url 'todo:create' 'completed' %}" class="New">
                 <span class="plus_1"></span>
                 <span class="plus_2"></span>
                 New</a>
