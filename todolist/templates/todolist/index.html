@@ -15,7 +15,7 @@
             </div>
             <div class="mv_zone">
                 {% for ns in not_started %}
-                <div class="item-area">
+                <div class="item-area" data-no="{{ ns.pk }}">
                     <a href="{{ ns.get_absolute_url }}" class="title">{{ ns.title }}</a>
                     {{ ns.content }}
                     <a href="{% url 'todo:update' ns.pk %}">수정</a>
@@ -40,7 +40,7 @@
             </div>
             <div class="mv_zone">
                 {% for pg in progressed %}
-                <div class="item-area">
+                <div class="item-area" data-no="{{ pg.pk }}">
                     <a href="{{ pg.get_absolute_url }}" class="title">{{ pg.title }}</a>
                     {{ pg.content }}
                     <a href="{% url 'todo:update' pg.pk %}">수정</a>
@@ -65,7 +65,7 @@
             </div>
             <div class="mv_zone">
                 {% for cp in completed %}
-                <div class="item-area">
+                <div class="item-area" data-no="{{ cp.pk }}">
                     <a href="{{ cp.get_absolute_url }}" class="title">{{ cp.title }}</a>
                     {{ cp.content }}
                     <a href="{% url 'todo:update' cp.pk %}">수정</a>

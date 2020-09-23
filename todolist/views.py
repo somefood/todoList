@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from django.http import JsonResponse
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, CreateView, DetailView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -16,6 +17,12 @@ class TodoIndexView(LoginRequiredMixin, TemplateView):
         context['progressed'] = TodoList.objects.filter(username=self.request.user, is_progressed=True, is_completed=False)
         context['completed'] = TodoList.objects.filter(username=self.request.user, is_progressed=True, is_completed=True)
         return context
+
+
+def todo_change_status(request):
+    if request.method == "POST":
+        todo_item = get_object_or_404(TodoList, pk=pk)
+    return JsonResponse({'test': 'test'})
 
 
 class TodoDetailView(LoginRequiredMixin, DetailView):
