@@ -20,9 +20,14 @@
 </head>
 
 <body>
-  {% block content %} {% endblock %} {# js 파일 위치 #}
+  {% block content %}
+  {% endblock %}
+
+  {% block scripts_first_need %}
+  {% endblock %}
   <script src="{% static 'js/scripts.js' %}"></script>
-  {% block scripts %} {% endblock %}
+  {% block scripts %}
+  {% endblock %}
 </body>
 
 </html>
