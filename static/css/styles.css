@@ -410,16 +410,27 @@ input:focus {
 
 .todo-area .item-area {
   z-index: 9999;
-  margin-top:30px;
+  margin: 10px 0 10px;
   border: 1px solid #d9d9d9;
   border-radius: 5px ;
   box-shadow: 0px 1px 1px 1px rgba(217, 217, 217, 0.5);
   cursor: pointer;
+  min-height: 130px;
 }
+
+.item-placeholder {
+  border: 1px dotted black;
+  margin: 0 1em 1em 0;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  /* 노란색으로 표신되는 것이 주요 포인트 */
+  background-color: yellow;
+}
+
 .mv_zone {
   position: relative;
-  min-height: 100px;
-  background-color: rgba(232, 247, 248, 0.787);
+  min-height: calc(70vh);
 }
 
 .show_drophere{

@@ -1,13 +1,33 @@
-$(document).ready(function () {
-  $(".mv_zone").sortable({
-    revert: true, //드래그 멈추면 자신의 위치로 돌아감
-    tolerance: "intersect", //아이템끼리 겹치는 부분
-    connectWith: ".item-area", //아이템 단방향정렬
-  });
-  $(".item-area").draggable({
-    connectToSortable: ".mv_zone", //돌아가는 위치
-    revert: "invalid", //원래 위치로 돌아가게 하는 옵션
-    accept: '.mv_zone',//드롭 가능한 공간
-  });
-
-})
+$(function(){
+        $('.mv_zone').sortable({
+            revert: true,
+            tolerance: "intersect",
+            connectWith: ".mv_zone",
+            handle: ".title",
+            placeholder: "item-placeholder",
+            update: function (event, ui) {
+                if (this === ui.item.parent()[0]) {
+                    var pk = $(ui.item).data('no');
+                    var status = $(ui.item).closest('.area_zone').data('status');
+                    console.log(status);
+                    $.ajax({
+                        type: "POST",
+                        url: myGlobal.url,
+                        data: {
+                            'csrfmiddlewaretoken': myGlobal.csrfmiddlewaretoken,
+                            'pk': pk,
+                            'status': status,
+                        },
+                        success: function (response) {
+                            console.log(response);
+                        },
+                        error: function (request, status, error) {
+                            alert("로그인이 필요합니다!")
+                            window.location.replace("/accounts/login/")
+                        }
+                    })
+                }
+            }
+        });
+        $( ".mv_zone .item-area" ).disableSelection();
+    })

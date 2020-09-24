@@ -4,6 +4,7 @@ from . import views
 app_name = 'todo'
 urlpatterns = [
     path('', views.TodoIndexView.as_view(), name='index'),
+    path('change/', views.todo_change_status, name='change_status'),
     path('detail/<int:pk>/', views.TodoDetailView.as_view(), name='detail'),
     path('create/', views.TodoCreateView.as_view(), name='create'),
     path('create/<str:status>/', views.TodoCreateView.as_view(), name='create'),
