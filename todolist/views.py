@@ -21,8 +21,19 @@ class TodoIndexView(LoginRequiredMixin, TemplateView):
 
 def todo_change_status(request):
     if request.method == "POST":
-        todo_item = get_object_or_404(TodoList, pk=pk)
-    return JsonResponse({'test': 'test'})
+        todo_item = get_object_or_404(TodoList, pk=request.POST.get('pk'))
+        status = request.POST.get('status')
+        if status == "ns":
+            todo_item.is_progressed = False
+            todo_item.is_completed = False
+        elif status == "pg":
+            todo_item.is_progressed = True
+            todo_item.is_completed = False
+        else:
+            todo_item.is_progressed = True
+            todo_item.is_completed = True
+        todo_item.save()
+    return JsonResponse({'status_change': 'success'})
 
 
 class TodoDetailView(LoginRequiredMixin, DetailView):
@@ -42,6 +53,9 @@ class TodoCreateView(LoginRequiredMixin, CreateView):
         elif self.kwargs['status'] == "completed":
             self.object.is_progressed = True
             self.object.is_completed = True
+        else:
+            self.object.is_progressed = False
+            self.object.is_completed = False
         self.object.save()
         return super().form_valid(form)
 

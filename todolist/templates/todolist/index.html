@@ -9,21 +9,25 @@
     </div>
     <div class="todo-area">
         {# 미시작 영역 #}
-        <div class="ns-area area_zone">
+        <div class="ns-area area_zone" data-status="ns">
             <div class="header ago">
                 <h3>진행 전</h3>
             </div>
             <div class="mv_zone">
                 {% for ns in not_started %}
                 <div class="item-area" data-no="{{ ns.pk }}">
-                    <a href="{{ ns.get_absolute_url }}" class="title">{{ ns.title }}</a>
-                    {{ ns.content }}
+                    <div class="title">
+                        <a href="{{ ns.get_absolute_url }}">{{ ns.title }}</a>
+                    </div>
+                    <div class="content">
+                        {{ ns.content }}
+                    </div>
                     <a href="{% url 'todo:update' ns.pk %}">수정</a>
                 </div>
                 {% endfor %}
                 <div class="show_drophere">영역에 넣어주세요</div>
             </div>
-            <a href="{% url 'todo:create' %}" class="New">
+            <a href="{% url 'todo:create' 'notStared' %}" class="New">
                 <span class="plus_1"></span>
                 <span class="plus_2"></span>
                 New</a>
@@ -35,15 +39,19 @@
         </div>
 
         {# 진행중 영역 #}
-        <div class="pg-area area_zone">
+        <div class="pg-area area_zone" data-status="pg">
             <div class="header ing">
                 <h3>진행 중</h3>
             </div>
             <div class="mv_zone">
                 {% for pg in progressed %}
                 <div class="item-area" data-no="{{ pg.pk }}">
-                    <a href="{{ pg.get_absolute_url }}" class="title">{{ pg.title }}</a>
-                    {{ pg.content }}
+                    <div class="title">
+                        <a href="{{ pg.get_absolute_url }}">{{ pg.title }}</a>
+                    </div>
+                    <div class="content">
+                        {{ pg.content }}
+                    </div>
                     <a href="{% url 'todo:update' pg.pk %}">수정</a>
                 </div>
                 {% endfor %}
@@ -60,15 +68,19 @@
         </div>
 
         {# 완료 영역 #}
-        <div class="cp-area area_zone">
+        <div class="cp-area area_zone" data-status="cp">
             <div class="header success">
                 <h3>완료</h3>
             </div>
             <div class="mv_zone">
                 {% for cp in completed %}
                 <div class="item-area" data-no="{{ cp.pk }}">
-                    <a href="{{ cp.get_absolute_url }}" class="title">{{ cp.title }}</a>
-                    {{ cp.content }}
+                    <div class="title">
+                        <a href="{{ cp.get_absolute_url }}">{{ cp.title }}</a>
+                    </div>
+                    <div class="content">
+                        {{ cp.content }}
+                    </div>
                     <a href="{% url 'todo:update' cp.pk %}">수정</a>
                 </div>
                 {% endfor %}
@@ -85,4 +97,41 @@
         </div>
     </div>
 </div>
+{% endblock %}
+{% block scripts %}
+    <script>
+    $(function(){
+        $('.mv_zone').sortable({
+            revert: true,
+            tolerance: "intersect",
+            connectWith: ".mv_zone",
+            handle: ".title",
+            placeholder: "item-placeholder",
+            update: function (event, ui) {
+                if (this === ui.item.parent()[0]) {
+                    var pk = $(ui.item).data('no');
+                    var status = $(ui.item).closest('.area_zone').data('status');
+                    console.log(status);
+                    $.ajax({
+                        type: "POST",
+                        url: {% url 'todo:change_status' %},
+                        data: {
+                            'csrfmiddlewaretoken': '{{ csrf_token }}',
+                            'pk': pk,
+                            'status': status,
+                        },
+                        success: function (response) {
+                            console.log(response);
+                        },
+                        error: function (request, status, error) {
+                            alert("로그인이 필요합니다!")
+                            window.location.replace("/accounts/login/")
+                        }
+                    })
+                }
+            }
+        });
+        $( ".mv_zone .item-area" ).disableSelection();
+    })
+    </script>
 {% endblock %}
