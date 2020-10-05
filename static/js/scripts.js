@@ -16,6 +16,10 @@ $(function () {
                 var pk = $(ui.item).data('no');
                 var status = $(ui.item).closest('.area_zone').data('status');
                 console.log(status);
+                var obj = {}
+                $('.item-area').each(function (idx, item) {
+                    obj[$(item).data('no')] = idx + 1;
+                })
                 $.ajax({
                     type: "POST",
                     url: myGlobal.url,
@@ -23,6 +27,7 @@ $(function () {
                         'csrfmiddlewaretoken': myGlobal.csrfmiddlewaretoken,
                         'pk': pk,
                         'status': status,
+                        'priority': JSON.stringify(obj)
                     },
                     success: function (response) {
                         console.log(response);

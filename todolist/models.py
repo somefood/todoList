@@ -9,6 +9,7 @@ class TodoList(models.Model):
     content = models.TextField(verbose_name='내용', blank=True)
     is_progressed = models.BooleanField(verbose_name='진행여부', default=False)
     is_completed = models.BooleanField(verbose_name='완료여부', default=False)
+    priority = models.PositiveIntegerField(verbose_name='우선순위', default=0)
 
     def __str__(self):
         return f"{self.title}"
@@ -19,3 +20,4 @@ class TodoList(models.Model):
     class Meta:
         verbose_name = "TODO 목록"
         verbose_name_plural = "TODO 목록"
+        ordering = ["priority"]

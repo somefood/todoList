@@ -1,3 +1,5 @@
+import json
+
 from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse
 from django.urls import reverse_lazy
@@ -23,6 +25,7 @@ def todo_change_status(request):
     if request.method == "POST":
         todo_item = get_object_or_404(TodoList, pk=request.POST.get('pk'))
         status = request.POST.get('status')
+        priority_dict = json.loads(request.POST.get('priority'))
         if status == "ns":
             todo_item.is_progressed = False
             todo_item.is_completed = False
@@ -33,6 +36,10 @@ def todo_change_status(request):
             todo_item.is_progressed = True
             todo_item.is_completed = True
         todo_item.save()
+        for k, v in priority_dict.items():
+            item = get_object_or_404(TodoList, pk=k)
+            item.priority = v
+            item.save()
     return JsonResponse({'status_change': 'success'})
 
 
