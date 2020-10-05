@@ -85,7 +85,8 @@
 {% block scripts_first_need %}
 <script>
     var myGlobal = {
-        url: '{% url 'todo:change_status' %}',
+        url: '{% url 'todo:index' %}',
+        changeUrl: '{% url 'todo:change_status' %}',
         csrfmiddlewaretoken: '{{ csrf_token }}',
     }
 </script>
