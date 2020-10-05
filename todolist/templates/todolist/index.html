@@ -22,20 +22,14 @@
                     <div class="content">
                         {{ ns.content }}
                     </div>
-                    <a href="{% url 'todo:update' ns.pk %}">수정</a>
+                    <a class="update" href="{% url 'todo:update' ns.pk %}">수정</a>
                 </div>
                 {% endfor %}
-                <div class="show_drophere">영역에 넣어주세요</div>
             </div>
             <a href="{% url 'todo:create' 'notStared' %}" class="New">
                 <span class="plus_1"></span>
                 <span class="plus_2"></span>
                 New</a>
-            <a href="#" class="more">
-                <span class="mores more_1"></span>
-                <span class="mores more_2"></span>
-                <span class="mores more_3"></span>
-            </a>
         </div>
 
         {# 진행중 영역 #}
@@ -52,7 +46,7 @@
                     <div class="content">
                         {{ pg.content }}
                     </div>
-                    <a href="{% url 'todo:update' pg.pk %}">수정</a>
+                    <a class="update" href="{% url 'todo:update' pg.pk %}">수정</a>
                 </div>
                 {% endfor %}
             </div>
@@ -60,11 +54,6 @@
                 <span class="plus_1"></span>
                 <span class="plus_2"></span>
                 New</a>
-            <a href="#" class="more">
-                <span class="mores more_1"></span>
-                <span class="mores more_2"></span>
-                <span class="mores more_3"></span>
-            </a>
         </div>
 
         {# 완료 영역 #}
@@ -81,7 +70,7 @@
                     <div class="content">
                         {{ cp.content }}
                     </div>
-                    <a href="{% url 'todo:update' cp.pk %}">수정</a>
+                    <a class="update" href="{% url 'todo:update' cp.pk %}">수정</a>
                 </div>
                 {% endfor %}
             </div>
@@ -89,11 +78,6 @@
                 <span class="plus_1"></span>
                 <span class="plus_2"></span>
                 New</a>
-            <a href="#" class="more">
-                <span class="mores more_1"></span>
-                <span class="mores more_2"></span>
-                <span class="mores more_3"></span>
-            </a>
         </div>
     </div>
 </div>
