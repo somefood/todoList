@@ -12,6 +12,11 @@
         <div class="ns-area area_zone" data-status="ns">
             <div class="header ago">
                 <h3>진행 전</h3>
+                <a href="{% url 'todo:create' 'notStared' %}" class="New">
+                    <span class="plus_1"></span>
+                    <span class="plus_2"></span>
+                    New
+                </a>
             </div>
             <div class="mv_zone">
                 {% for ns in not_started %}
@@ -26,16 +31,17 @@
                 </div>
                 {% endfor %}
             </div>
-            <a href="{% url 'todo:create' 'notStared' %}" class="New">
-                <span class="plus_1"></span>
-                <span class="plus_2"></span>
-                New</a>
         </div>
 
         {# 진행중 영역 #}
         <div class="pg-area area_zone" data-status="pg">
             <div class="header ing">
                 <h3>진행 중</h3>
+                <a href="{% url 'todo:create' 'progressed' %}" class="New">
+                    <span class="plus_1"></span>
+                    <span class="plus_2"></span>
+                    New
+                </a>
             </div>
             <div class="mv_zone">
                 {% for pg in progressed %}
@@ -50,16 +56,17 @@
                 </div>
                 {% endfor %}
             </div>
-            <a href="{% url 'todo:create' 'progressed' %}" class="New">
-                <span class="plus_1"></span>
-                <span class="plus_2"></span>
-                New</a>
         </div>
 
         {# 완료 영역 #}
         <div class="cp-area area_zone" data-status="cp">
             <div class="header success">
                 <h3>완료</h3>
+                <a href="{% url 'todo:create' 'completed' %}" class="New">
+                    <span class="plus_1"></span>
+                    <span class="plus_2"></span>
+                    New
+                </a>
             </div>
             <div class="mv_zone">
                 {% for cp in completed %}
@@ -74,10 +81,6 @@
                 </div>
                 {% endfor %}
             </div>
-            <a href="{% url 'todo:create' 'completed' %}" class="New">
-                <span class="plus_1"></span>
-                <span class="plus_2"></span>
-                New</a>
         </div>
     </div>
 </div>

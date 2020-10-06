@@ -54,12 +54,6 @@ input {
 .wrap {
   width: 100%;
   height: 100vh;
-  background: linear-gradient(
-    90deg,
-    rgba(49, 217, 228, 1) 0%,
-    rgba(98, 141, 233, 1) 76%,
-    rgba(143, 71, 238, 1) 100%
-  );
   display: flex;
   justify-content: center;
   align-items: center;
@@ -370,8 +364,6 @@ input:focus {
   margin: 0 auto;
   border-radius: 15px;
   margin-top: 80px;
-  background: #fbfbfb;
- 
 }
 
 .area_zone{
@@ -398,14 +390,14 @@ input:focus {
 }
 
 .todo-area .ago h3{
-  background-color: rgba(156, 240, 248, 0.5);
+  background: rgba(255, 0, 26, 0.2);
 }
 .todo-area .ing h3{
-  background-color:rgba(49, 217, 228, 0.6)
+  background: rgba(233, 168, 0, 0.2);
 }
 
 .todo-area .success h3{
-  background-color:rgba(122, 172, 239, 0.9)
+  background: rgba(0, 135, 107, 0.2);
 }
 
 .todo-area .item-area {
@@ -415,17 +407,17 @@ input:focus {
   border-radius: 5px ;
   box-shadow: 0px 1px 1px 1px rgba(217, 217, 217, 0.5);
   cursor: pointer;
-  min-height: 130px;
+  min-height: 100px;
 }
 
 .item-placeholder {
-  border: 1px dotted black;
+  border: 1px solid rgba(55, 53, 47, 0.08);
   margin: 0 1em 1em 0;
-  height: 50px;
+  height: 100px;
   margin-left: auto;
   margin-right: auto;
   /* 노란색으로 표신되는 것이 주요 포인트 */
-  background-color: yellow;
+  background-color: rgba(55, 53, 47, 0.08);
 }
 
 .mv_zone {
@@ -455,7 +447,7 @@ input:focus {
 }
 .New .plus_1{
 position:absolute;
-top:5px;
+top:8px;
 left:15px;
 width: 2px;
 height: 16px;
@@ -464,7 +456,7 @@ background-color:#d9d9d9;
 
 .New .plus_2{
   position:absolute;
-  top:12px;
+  top:15px;
   left:7px;
   width: 16px;
   height: 2px;
@@ -494,7 +486,7 @@ background-color:#d9d9d9;
   top:25%;
   margin-top: 5px;
 }
-.more .more_1{ 
+.more .more_1{
   left:0%;
 }
 .more .more_2{
@@ -516,7 +508,7 @@ background-color:#d9d9d9;
   margin-top: 15px;
 }
 .create_wrap .toDoList_Check label{
-  font-size:1.3rem; 
+  font-size:1.3rem;
 }
 .toDoList_Check input{display:inline-block; margin-left:
 10px; }
@@ -535,3 +527,70 @@ background-color:#d9d9d9;
   background: linear-gradient( 90deg, rgba(194, 169, 227, 1) 0%, rgba(143, 71, 238, 1) 76% );
   box-shadow: 1px 1px 8px 0px rgba(194, 169, 227, 1);
   cursor: pointer;}
+
+.submit_form {
+  display: flex;
+  flex-direction: column;
+}
+
+.submit_form label {
+  display: inline-block;
+  margin-bottom: .5rem;
+}
+
+.submit_form .form-control {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  display: block;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  width: 100%;
+}
+
+.modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  top: 0;
+  left: 0;
+}
+
+.modal-con {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white none repeat scroll 0% 0%;
+  box-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 5px 10px, rgba(15, 15, 15, 0.2) 0px 15px 40px;
+  width: 500px;
+  padding: 25px;
+}
+
+.btn-group {
+  margin: 0 auto;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  color: #212529;
+  text-align: center;
+  vertical-align: middle;
+  background-color: transparent;
+  border: 1px solid #ced4da;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  width: 7.5rem;
+  cursor: pointer;
+  transition: 0.15s ease-in-out;
+}
+
+.btn:hover {
+  border-color: #9cf0f8;
+  background: #9cf0f8;
+  color: #fbfbfb;
+}
