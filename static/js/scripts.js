@@ -15,7 +15,6 @@ $(function () {
             if (this === ui.item.parent()[0]) {
                 var pk = $(ui.item).data('no');
                 var status = $(ui.item).closest('.area_zone').data('status');
-                console.log(status);
                 var obj = {}
                 $('.item-area').each(function (idx, item) {
                     obj[$(item).data('no')] = idx + 1;
@@ -60,6 +59,29 @@ $(function () {
         });
     });
 
+    $(document).on('click', '.delete', function(e){
+        e.preventDefault();
+        var is_deleted = confirm("삭제하시겠습니까?")
+        if (is_deleted) {
+            var target = e.target
+            var uri = $(target).attr('href').slice(1,);
+            var url = `${myGlobal.url}${uri}`
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: {
+                    csrfmiddlewaretoken: myGlobal.csrfmiddlewaretoken
+                },
+                success: function (response) {
+                    $(target).parents('.item-area').remove();
+                },
+            });
+        } else {
+            return false;
+        }
+    });
+
     $(document).on('click', '.close', function (e) {
         e.preventDefault();
         $('.modal').remove();
@@ -77,7 +99,7 @@ $(function () {
             type: "POST",
             url: url,
             data: formData,
-            success: function (response) {
+           success: function (response) {
                 location.reload();
             }
         });
